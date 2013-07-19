@@ -1,4 +1,4 @@
-##Accessibility Geometry
+##Accessibility Ideas
 
 This project demonstrates a few ideas for how UIAccessibility could make containers and elements more useful and require less subclassing.
 
