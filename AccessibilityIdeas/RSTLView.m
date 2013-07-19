@@ -21,6 +21,7 @@
 #import "_RSTLAccessibilityContainer.h"
 
 @interface UIView (Private)
+#warning USES PRIVATE API
 - (void)_didRemoveSubview:(UIView *)view;
 @end
 
