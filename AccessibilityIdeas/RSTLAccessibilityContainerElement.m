@@ -22,7 +22,6 @@
 
 @interface RSTLAccessibilityContainerElement ()
 @property (nonatomic, readonly) _RSTLAccessibilityContainer *accessibilityInternalContainer;
-- (void)removeAccessibilityElement:(id)accessibilityElement;
 @end
 
 @implementation RSTLAccessibilityContainerElement
