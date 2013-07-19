@@ -37,6 +37,11 @@ static NSNumber *getAccessibilityContainerIndex(id object)
 	return accessibilityContainerIndexNumber;
 }
 
++ (BOOL)automaticallyNotifiesObserversOfAccessibilityContainerIndex
+{
+	return NO;
+}
+
 - (NSUInteger)accessibilityContainerIndex
 {
 	return [getAccessibilityContainerIndex(self) unsignedIntegerValue];
@@ -44,7 +49,12 @@ static NSNumber *getAccessibilityContainerIndex(id object)
 
 - (void)setAccessibilityContainerIndex:(NSUInteger)accessibilityContainerIndex
 {
-	objc_setAssociatedObject(self, accessibilityContainerIndexKey, @(accessibilityContainerIndex), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+	if (accessibilityContainerIndex != self.accessibilityContainerIndex)
+	{
+		[self willChangeValueForKey:@"accessibilityContainerIndex"];
+		objc_setAssociatedObject(self, accessibilityContainerIndexKey, @(accessibilityContainerIndex), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+		[self didChangeValueForKey:@"accessibilityContainerIndex"];
+	}
 }
 
 @end
